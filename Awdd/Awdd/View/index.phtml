@@ -1,0 +1,62 @@
+<?php if ($this->msg): ?>
+<div class="wrap">
+	<h2 id="add-new-user"><?php echo $this->msg?></h2>
+</div>
+<?php endif; ?>
+<div class="wrap">
+	<h2>Clients	<a href="?page=Client&action=add" class="add-new-h2">Add</a></h2>
+
+	<table class="wp-list-table widefat fixed users">
+		<thead>
+			<tr>
+				<th scope="col" id="id">
+					<span>id</span>
+				</th>
+				<th scope="col" id="username" >
+					<span>Name</span>
+				</th>
+				<th scope="col" id="name" >
+					<span>Fone</span>
+				</th>
+				<th scope="col" id="email" >
+					<span>Email</span>
+				</th>
+				<th scope="col" id="action">Action</th>
+			</tr>
+		</thead>
+
+		<tfoot>
+			<tr>
+				<th scope="col" id="id">
+					<span>id</span>
+				</th>
+				<th scope="col" id="username" >
+					<span>Name</span>
+				</th>
+				<th scope="col" id="name" >
+					<span>Fone</span>
+				</th>
+				<th scope="col" id="email" >
+					<span>Email</span>
+				</th>
+				<th scope="col" id="action">Action</th>
+			</tr>
+		</tfoot>
+
+		<tbody id="the-list" data-wp-lists="list:user">
+			<?php foreach ($clients as $client): ?>
+			<tr id="user-1" class="alternate">
+				<td><?php echo $client->getId() ?></td>
+				<td><a href="?page=Client&action=edit&id=<?php echo $client->getId() ?>"><?php echo $client->getName() ?></a></td>
+				<td><?php echo $client->getFone()?></td>
+				<td><a href="mailto:<?php echo $client->getEmail() ?>" title="<?php echo $client->getEmail() ?>"><?php echo $client->getEmail() ?></a></td>
+				<td>
+					<a href="?page=Client&action=edit&id=<?php echo $client->getId() ?>" title="Edit this client" class="edit">Edit</a>
+					<a href="?page=Client&action=delete&id=<?php echo $client->getId() ?>" title="Delete this client" class="edit">Delete</a>
+				</td>
+			</tr>
+			<?php endforeach; ?>	
+		</tbody>
+	</table>
+
+</div>

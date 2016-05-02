@@ -1,0 +1,19 @@
+<?php if ($this->msg): ?>
+<div class="wrap">
+	<h2 id="add-new-user"><?php echo $this->msg?></h2>
+</div>
+<?php endif; ?>
+<div class="wrap">
+	<h2 id="add-new-user">Delete Client <a href="?page=Client" class="add-new-h2">List</a></h2>
+	
+	<p>Do you want to delete the client <?php echo $client->getName(); ?> (id: <?php echo $id?>)?.</p>
+	<form action="?page=Client&action=delete&id=<?php echo $id?>&noheader=true" method="post" name="editclient" id="editclient" class="validate" novalidate="novalidate">
+		<p class="submit">
+			<input type="submit" name="deleteClient" id="createusersub" class="button button-primary" value="Yes">
+			<input type="submit" name="deleteClient" id="createusersub" class="button button-primary" value="No">
+		</p>
+	</form>
+</div>
+
+
+
